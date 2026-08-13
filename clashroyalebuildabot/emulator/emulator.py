@@ -211,7 +211,13 @@ class Emulator:
         if not packets:
             return None
 
-        frames = self.codec.decode(packets[-1])
+        # ``parse`` may return more than one packet when the pipe delivers
+        # several H.264 access units at once.  Decoding only the last packet
+        # discards parser state and eventually desynchronizes the decoder on
+        # a long-running stream.
+        frames = []
+        for packet in packets:
+            frames.extend(self.codec.decode(packet))
         if not frames:
             return None
         return frames[-1]
