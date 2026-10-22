@@ -43,3 +43,9 @@ Evidence precedence:
 ## Git safety
 
 Inspect repository status and the final diff. Do not discard unrelated work, rewrite history, force-push, or use destructive cleanup. Keep local maintenance commits narrowly scoped and explicitly distinguish local changes from upstream-derived content.
+
+## Cross-project UX, DX, and AX principles
+
+Cut taglines, helper text and secondary labels. If a screen needs them to make sense, fix the layout.
+
+Make the best decision that will elevate all three: the user experience (UX), developer experience (DX), and agent experience (AX) always, without breaking anything.
